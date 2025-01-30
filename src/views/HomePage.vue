@@ -3,6 +3,11 @@
   <SliderComp />
   <SearchComp />
 
+  <!-- Error Message -->
+  <div v-if="errorMessage" class="flex items-center justify-center min-h-64 font-light text-gray-500 dark:text-gray-400 bg-gay-50 dark:bg-gray-900">
+    {{ errorMessage }}
+  </div>
+
   <!-- Movies Section -->
   <CardsComp v-if="movies.length" title="Movies" :cards="movies.slice(0, 11)" />
 
@@ -20,7 +25,6 @@
   <FooterComp />
 </template>
 
-
 <script>
 import axios from "axios";
 import HeaderComp from "../components/HeaderComp.vue";
@@ -29,8 +33,6 @@ import SliderComp from "../components/SliderComp.vue";
 import CardsComp from "../components/CardsComp.vue";
 import FooterComp from "../components/FooterComp.vue";
 import HomeSkeleton from "../components/loading/HomeSkeleton.vue";
-
-
 
 export default {
   name: "MainLayout",
@@ -41,7 +43,6 @@ export default {
     CardsComp,
     FooterComp,
     HomeSkeleton,
-
   },
   data() {
     return {
@@ -50,6 +51,7 @@ export default {
       kdramas: [], // Filtered kdramas
       historical: [], // Filtered historical
       isLoading: true, // Show loader when data is loading
+      errorMessage: "", // Store API error message
       cardLimit: 11, // Dynamically control the card limit
     };
   },
@@ -68,13 +70,16 @@ export default {
         this.historical = this.allCards.filter((item) => item.category === "Historical");
       } catch (error) {
         console.error("Error fetching cards:", error);
+        this.errorMessage = "Failed to load data. Please try again later."; // Show error message
       } finally {
         this.isLoading = false; // Set loading to false once data is fetched
       }
-    }
+    },
   },
 };
 </script>
+
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');

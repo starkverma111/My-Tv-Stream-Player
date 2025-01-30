@@ -108,9 +108,7 @@ export default {
     if (!videoId) throw new Error("No video ID provided");
     this.isLoading = true;
 
-    const response = await axios.get(
-      `https://niyander.com/projects/api/yts/vid.php?id=${videoId}`
-    );
+    const response = await axios.get(`${process.env.VUE_APP_API_VIDEO}?id=${videoId}`);
 
     // Filter the correct video by ID
     const videoData = response.data.find((video) => video.id == videoId);

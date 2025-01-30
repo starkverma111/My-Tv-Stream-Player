@@ -106,7 +106,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await fetch('https://niyander.com/projects/api/yts/vid.php');
+        const response = await fetch(`${process.env.VUE_APP_API_VIDEO}`);
         const data = await response.json();
         this.cards = data;
         this.flatCards = data.reduce((acc, card) => {

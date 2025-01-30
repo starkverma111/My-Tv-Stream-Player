@@ -109,7 +109,7 @@ export default {
   methods: {
     async fetchCategory() {
       try {
-        const response = await axios.get("https://niyander.com/projects/api/yts/vid.php");
+        const response = await axios.get(`${process.env.VUE_APP_API_VIDEO}`);
         this.allItems = response.data; // Store all items
         this.loadMoreItems(); // Initially load 8 items from filtered data
       } catch (error) {
