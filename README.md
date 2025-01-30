@@ -1,14 +1,24 @@
-# My-Tv-Stream-Player
+# mytv
 
-Welcome to **My TV - Stream Player**, your go-to platform for free movies, TV shows, K-dramas, and anime. We’re dedicated to making entertainment accessible, offering a vast library of content for every taste. Whether you're a fan of thrilling dramas, laugh-out-loud comedies, or captivating animations, we’ve got you covered.
+## Project setup
+```
+npm install
+```
 
-## Features
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-- **Content Library**: Access a diverse selection of movies, TV shows, K-dramas, and anime.
-- **Interactive UI**: Built with Vue.js to create a smooth and dynamic user experience.
-- **Responsive Design**: Tailored for devices of all sizes using Tailwind CSS, ensuring a great experience on mobile, tablet, and desktop.
-- **Search Functionality**: Easily search for your favorite shows, movies, and genres.
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## Live Demo
+### Lints and fixes files
+```
+npm run lint
+```
 
-[My-Tv-Stream-Player](https://mytv-736f8.web.app/)
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
